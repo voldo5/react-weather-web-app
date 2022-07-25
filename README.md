@@ -3,6 +3,7 @@
 ![alt](./src/assets/WeatherApp.jpg)
 ### Key Words
 #### React: useState, useEffect, useReduce, useContext, useRef
+#### npm: use-immer, react-dnd, react-dnd-html5-backend, react-flag-icon-css, nanoid
 #### Custom Hooks: useFocus, useAppState, useGetWeather, useImmerReducer, useItemDrag, 
 #### useDrop, useDebounce
 #### Typescript: fetch, async, await, try, catch, destructuring, spread operator, rest operator, slice, date.toLocaleDateString
@@ -10,7 +11,6 @@
 #### Icons: Weather icons, React icons, react-flag-icon-css
 #### Styled-components: react component, props
 #### CSS: flex, css grid, fluent typography, clamp, rem, vw, vh
-#### npm: use-immer, react-dnd, react-dnd-html5-backend, react-flag-icon-css, nanoid
 #### Installation from zero:
 ```jsx
 npx create-react-app project1
