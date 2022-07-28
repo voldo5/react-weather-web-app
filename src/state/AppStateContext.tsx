@@ -34,7 +34,9 @@ const AppStateContext = createContext<AppStateContextProps>(
 
 export const AppStateProvider = withInitialState<AppStateProviderProps>(
   ({ children, initialState }) => {
+    console.log("initialState = ", initialState);
     const [state, dispatch] = useImmerReducer(appStateReducer, initialState);
+    console.log("state = ", state);
 
     //todo uncomment if using backend to store state  
     // useEffect(() => {     
