@@ -7,11 +7,31 @@ import { useAppState } from "./state/AppStateContext";
 import { addTask } from "./state/actions";
 import { CardSize } from "./interfaces/interface";
 import { CARD_SIZE } from "./state/data";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "./firebase/config";
+import { 
+  getFirestore,
+  query,
+  orderBy,
+  onSnapshot,
+  collection,
+  getDoc, 
+  getDocs, 
+  addDoc,
+  updateDoc,
+  doc, 
+  serverTimestamp, 
+  arrayUnion
+} from "firebase/firestore";
+
+export const app = initializeApp(firebaseConfig);
+export const firebase = getFirestore(app);
 
 export const App = () => {
   const { tasks, dispatch } = useAppState();
   //const ref = useRef(createRef<HTMLButtonElement>());
-  const [cardSize, setCardSize] = useState<CardSize>(CARD_SIZE);
+  const [cardSize, setCardSize] = useState<CardSize>(CARD_SIZE); 
+
   let newItemFormId: string = tasks ? (tasks.length + 1).toString() : "0";
 
   return (

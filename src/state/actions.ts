@@ -1,9 +1,22 @@
 import { DragItem } from "../DragItem";
+import { Task } from "../state/appStateReducer";
+//C:\SL3\Vova\projects\react-weather-web-app\src\state\appStateReducer.ts
 
 interface AddTaskAction {
   type: "ADD_TASK";
   payload: { text: string; taskId: string };
 }
+
+interface AddTasksAction {
+  type: "ADD_TASKS";
+  payload: { tasks: Task[] };
+}
+
+// export type AppState = {
+//   draggedItem: DragItem | null;
+//   timeZoneApiDelay: number;
+//   tasks: Task[];
+// };
 
 interface DeleteTaskAction {
   type: "DELETE_TASK";
@@ -23,9 +36,17 @@ interface SetDraggedItem {
 
 export type Action =
   | AddTaskAction
+  | AddTasksAction
   | MoveListAction
   | SetDraggedItem
   | DeleteTaskAction;
+
+export const addTasks = (tasks: Task[]): Action => ({
+  type: "ADD_TASKS",
+  payload: {
+    tasks
+  },
+});
 
 export const addTask = (text: string, taskId: string): Action => ({
   type: "ADD_TASK",

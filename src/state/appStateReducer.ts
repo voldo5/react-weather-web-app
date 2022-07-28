@@ -31,8 +31,13 @@ export const appStateReducer = (
   action: Action
 ): AppState | void => {
   //console.log("--appStateReducer--");
-  
+  //if(!draft) return;
   switch (action.type) {
+    case "ADD_TASKS": {
+      draft.tasks = action.payload.tasks;
+      console.log("ADD_TASKS = ", draft.tasks);
+      break;
+    }
     case "SET_DRAGGED_TASK": {
       draft.draggedItem = action.payload;
       break;
@@ -63,6 +68,7 @@ export const appStateReducer = (
     }
     // ...
     default: {
+      draft = draft;
       break;
     }
   }

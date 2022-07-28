@@ -15,6 +15,7 @@
     "@types/styled-components": "^5.1.9",
     "add": "^2.0.6",
     "components": "^0.1.0",
+    "firebase": "^9.9.1",
     "immer": "^9.0.12",
     "nanoid": "^3.1.30",
     "react": "^18.2.0",
