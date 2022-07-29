@@ -35,34 +35,47 @@ export function withInitialState<TProps>(
   WrappedComponent: ComponentType<PropsWithoutInjected<TProps> & InjectedProps>
 ) {
   return (props: PropsWithoutInjected<TProps>) => {
-    //const [initialState, setInitialState] = useState<AppState>(appData);
-    const [initialState, setInitialState] = useState<AppState>({draggedItem: null, timeZoneApiDelay: 0, tasks:[]});
+    const [initialState, setInitialState] = useState<AppState>(appData);
+    //const [initialState, setInitialState] = useState<AppState>({draggedItem: null, timeZoneApiDelay: 0, tasks:[]});
 
     //const [state, dispatch] = useImmerReducer(appStateReducer, initialState);
 
-    // const [isLoading, setIsLoading] = useState(true);
-    // const [error, setError] = useState<Error | undefined>();  
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState<Error | undefined>();  
 
     useEffect(() => {
-      const docRef: DocumentReference<DocumentData> = doc(firebase, "states", "state");
+      const docRef: DocumentReference<DocumentData> = doc(
+        firebase,
+        "states",
+        "state"
+      );
 
       const getDocAsync = async (docRef: DocumentReference<DocumentData>) => {
-        const docSnap: DocumentSnapshot<DocumentData> = await getDoc(docRef);   
-        console.log("Getstate docSnap:", docSnap);         
-        if (docSnap.exists()) {
-          const state: AppState = JSON.parse(docSnap.data().text);
-          setInitialState(state); 
-          //dispatch(addTasks(state.tasks));
-          console.log("Getstate state exist:", state);          
-        } else {
-          // doc.data() will be undefined in this case
-          console.log("No such document!");
-        }       
+        try {
+          const docSnap: DocumentSnapshot<DocumentData> = await getDoc(docRef);
+          //console.log("Getstate docSnap:", docSnap);
+          if (docSnap.exists()) {
+            const state: AppState = JSON.parse(docSnap.data().text);
+            setInitialState(state);
+            //console.log("Getstate state exist:", state);
+          } else {            
+            console.log("Default initial state!");
+          }
+        } catch (e: any) {
+          setError(e);
+        }
+        setIsLoading(false);
       };
+      getDocAsync(docRef);
+    }, []); 
+    
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
 
-      getDocAsync(docRef); 
-     
-    }, []);   
+    if (error) {
+      return <div>{error.message}</div>;
+    }
 
     //todo uncomment if using backend to store state 
     // useEffect(() => {
@@ -89,7 +102,7 @@ export function withInitialState<TProps>(
     //   return <div>{error.message}</div>;
     // }
 
-    console.log("initialState: ", initialState);   
+    //console.log("initialState: ", initialState);   
 
     return <WrappedComponent {...props} initialState={initialState} />;
   };

@@ -43,7 +43,9 @@ export const useGetWeather = (city: string): WeatherData => {
       weatherDataState.timeHourMinutes === ""
     ) {
       // TimeZoneDb free plan: maximum 1 request per 1 second, so set delay for request
-      incrementDelay(1200);
+      //incrementDelay(1500);
+      timeZoneApiDelay = timeZoneApiDelay + 1500;
+      console.log("useGetWeather timeZoneApiDelay = ", timeZoneApiDelay)
       timerRef.current = setTimeout(f1, timeZoneApiDelay);
     }
 

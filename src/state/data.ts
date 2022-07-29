@@ -3,7 +3,7 @@ import { AppState } from "./appStateReducer";
 
 export const appData: AppState = {
   draggedItem: null,
-  timeZoneApiDelay: 1200,
+  timeZoneApiDelay: 1500,
   tasks: [
     { idTask: "0", text: "Toronto, CA" },
     { idTask: "1", text: "kyiv" },

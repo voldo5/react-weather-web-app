@@ -36,9 +36,9 @@ const AppStateContext = createContext<AppStateContextProps>(
 export const AppStateProvider = withInitialState<AppStateProviderProps>(
   ({ children, initialState }) => {
 
-    console.log("AppStateProvider initialState = ", initialState);
+    //console.log("AppStateProvider initialState = ", initialState);
     const [state, dispatch] = useImmerReducer(appStateReducer, initialState);
-    console.log("AppStateProvider state = ", state);
+    //console.log("AppStateProvider state = ", state);
 
     //todo uncomment if using backend to store state  
     // useEffect(() => {     
@@ -47,22 +47,22 @@ export const AppStateProvider = withInitialState<AppStateProviderProps>(
 
      useEffect(() => {
        // saveMessage("test1");
-       console.log("saveState111 state = ", state);
+       //console.log("saveState111 state = ", state);
        if (state.tasks.length > 0) {
          saveState(state);
-         console.log("state.tasks.length = ", state.tasks.length);
-         console.log("saveState state = ", state);
+         //console.log("state.tasks.length = ", state.tasks.length);
+         //console.log("saveState state = ", state);
        }
      }, [state]);
 
     //if(!state) return null;
 
     const { draggedItem, tasks } = state;
-    console.log("AppStateProvider tasks = ", tasks);
-    const [timeZoneApiDelay, setTimeZoneApiDelay] = useState(0);
+    //console.log("AppStateProvider tasks = ", tasks);
+    const [timeZoneApiDelay, setTimeZoneApiDelay] = useState(1200);
 
     function incrementDelay(msDelay: number): void {
-      console.log("msDelay = ", msDelay);
+      //console.log("incrementDelay delay = ", timeZoneApiDelay + msDelay);
       setTimeZoneApiDelay(timeZoneApiDelay + msDelay);
     }
 
