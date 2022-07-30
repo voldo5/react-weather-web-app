@@ -1,29 +1,28 @@
 import { useEffect, useState, useContext, useRef } from "react";
 import { getWeatherApiData, getTimeZoneApiData } from "./apiUtils";
 import { WeatherData } from "../components/WeatherCard.props";
-import { useAppState } from "../state/AppStateContext";
+//import { useAppState } from "../state/AppStateContext";
 
-export const useGetWeather = (city: string): WeatherData => {
+export const useGetWeather = (city: string, timezoneDbRequestDelay: number): WeatherData => {
+
   const [weatherDataState, setWeatherDataState] = useState<WeatherData>(
     {} as WeatherData
   );
-  let { timeZoneApiDelay, incrementDelay } = useAppState();
+  //let { defaultRequestDelay, incrementDelay, setTimeZoneApiDelay } = useAppState();
 
   useEffect(() => {
     const f = async () => {
-      const openWeatherApiData = await getWeatherApiData(city);
-      //console.log("--openWeatherApiData = ", openWeatherApiData);
+      const openWeatherApiData = await getWeatherApiData(city);     
       setWeatherDataState(openWeatherApiData);
     };
-
     f();
   }, []);
 
   const timerRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
-    //todo set timer 1cek because TimeZoneApiData send one data in one sec
-    const f1 = async () => {
+
+    const getLocalTime = async () => {
       const timeZoneApiData = await getTimeZoneApiData(
         weatherDataState.lon,
         weatherDataState.lat
@@ -42,17 +41,19 @@ export const useGetWeather = (city: string): WeatherData => {
       Object.keys(weatherDataState).length > 0 &&
       weatherDataState.timeHourMinutes === ""
     ) {
+      
+      console.log(
+        "useGetWeather timezoneDbRequestDelay = ",
+        timezoneDbRequestDelay
+      );
       // TimeZoneDb free plan: maximum 1 request per 1 second, so set delay for request
-      //incrementDelay(1500);
-      timeZoneApiDelay = timeZoneApiDelay + 1500;
-      console.log("useGetWeather timeZoneApiDelay = ", timeZoneApiDelay)
-      timerRef.current = setTimeout(f1, timeZoneApiDelay);
+      timerRef.current = setTimeout(getLocalTime, timezoneDbRequestDelay);
     }
 
     return () => {
       timerRef.current && clearTimeout(timerRef.current);
     };
-  }, [weatherDataState.dt]);
+  }, [weatherDataState.dt, timezoneDbRequestDelay]);
 
   return weatherDataState;
 };

@@ -1,5 +1,4 @@
 import {
-  useState,
   createContext,
   useContext,
   useEffect,
@@ -13,15 +12,13 @@ import { DragItem } from "../DragItem";
 import { AppState } from "../state/appStateReducer";
 import { withInitialState } from "../withInitialState";
 import { save, saveState } from "../api";
-import { appData } from "./data";
 
 type AppStateContextProps = {
   tasks: Task[];
   draggedItem: DragItem | null;
-  timeZoneApiDelay: number;
+  defaultRequestDelay: number;
   dispatch: Dispatch<Action>;
   findItemIndexById(items: Task[], id: string): number;
-  incrementDelay(msDelay: number): void;
 };
 
 type AppStateProviderProps = {
@@ -35,46 +32,34 @@ const AppStateContext = createContext<AppStateContextProps>(
 
 export const AppStateProvider = withInitialState<AppStateProviderProps>(
   ({ children, initialState }) => {
-
-    //console.log("AppStateProvider initialState = ", initialState);
+    console.log("AppStateProvider initialState = ", initialState);
     const [state, dispatch] = useImmerReducer(appStateReducer, initialState);
-    //console.log("AppStateProvider state = ", state);
+    console.log("AppStateProvider state = ", state);
+    //const [defaultRequestDelay, setTimeZoneApiDelay] = useState(1200);
 
     //todo uncomment if using backend to store state  
     // useEffect(() => {     
     //   save(state);
     // }, [state]);
 
-     useEffect(() => {
-       // saveMessage("test1");
-       //console.log("saveState111 state = ", state);
+     useEffect(() => {       
        if (state.tasks.length > 0) {
          saveState(state);
-         //console.log("state.tasks.length = ", state.tasks.length);
-         //console.log("saveState state = ", state);
        }
      }, [state]);
 
     //if(!state) return null;
 
-    const { draggedItem, tasks } = state;
-    //console.log("AppStateProvider tasks = ", tasks);
-    const [timeZoneApiDelay, setTimeZoneApiDelay] = useState(1200);
-
-    function incrementDelay(msDelay: number): void {
-      //console.log("incrementDelay delay = ", timeZoneApiDelay + msDelay);
-      setTimeZoneApiDelay(timeZoneApiDelay + msDelay);
-    }
+    const { draggedItem, tasks, defaultRequestDelay } = state;
 
     return (
       <AppStateContext.Provider
         value={{
           tasks,
           draggedItem,
-          timeZoneApiDelay,
+          defaultRequestDelay,          
           dispatch,
           findItemIndexById,
-          incrementDelay,
         }}
       >
         {children}

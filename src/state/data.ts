@@ -1,9 +1,9 @@
 import { CardSize } from "../interfaces/interface";
 import { AppState } from "./appStateReducer";
 
-export const appData: AppState = {
+export const defaultState: AppState = {
   draggedItem: null,
-  timeZoneApiDelay: 1500,
+  defaultRequestDelay: 1000,
   tasks: [
     { idTask: "0", text: "Toronto, CA" },
     { idTask: "1", text: "kyiv" },
@@ -21,9 +21,9 @@ export const CARD_SIZE: CardSize = {
 };
 
 //  h 120-200    w 192-320
-// export const appData: AppState = {
+// export const defaultState: AppState = {
 //   draggedItem: null,
-//   timeZoneApiDelay: 1200,
+//   defaultRequestDelay: 1200,
 //   tasks: [
 //     { idTask: "0", text: "Toronto, CA" },
 //     { idTask: "1", text: "kyiv" },
@@ -33,7 +33,7 @@ export const CARD_SIZE: CardSize = {
 
 //Cherkasy; Odesa, UA; Tel Aviv, IL; Jerusalem, IL, Boston, US; Mississauga, CA; Khmelnytskyi, UA;
 
-// const appData: AppState = {
+// const defaultState: AppState = {
 //   list: {
 //     idList: "0",
 //     text: "",
