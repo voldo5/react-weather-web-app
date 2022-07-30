@@ -32,9 +32,9 @@ const AppStateContext = createContext<AppStateContextProps>(
 
 export const AppStateProvider = withInitialState<AppStateProviderProps>(
   ({ children, initialState }) => {
-   
+    console.log("AppStateProvider initialState = ", initialState);
     const [state, dispatch] = useImmerReducer(appStateReducer, initialState);
-    
+    console.log("AppStateProvider state = ", state);
     //const [defaultRequestDelay, setTimeZoneApiDelay] = useState(1200);
 
     //todo uncomment if using backend to store state  
