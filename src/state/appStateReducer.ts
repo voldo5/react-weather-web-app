@@ -14,7 +14,7 @@ export type Task = {
 
 export type AppState = {
   draggedItem: DragItem | null;
-  timeZoneApiDelay: number;
+  defaultRequestDelay: number;
   tasks: Task[];
 };
 
@@ -30,15 +30,19 @@ export const appStateReducer = (
   draft: AppState,
   action: Action
 ): AppState | void => {
-  //console.log("--appStateReducer--");
-  
+  //if(!draft) return;
   switch (action.type) {
+    // case "ADD_TASKS": {
+    //   draft.tasks = action.payload.tasks;
+    //   console.log("ADD_TASKS = ", draft.tasks);
+    //   break;
+    // }
     case "SET_DRAGGED_TASK": {
       draft.draggedItem = action.payload;
       break;
     }
     case "ADD_TASK": {
-      const { text, taskId } = action.payload;
+      const { text } = action.payload;
       draft.tasks.push({
         idTask: nanoid(),
         text: text,
@@ -49,20 +53,19 @@ export const appStateReducer = (
       const { draggedId, hoverId } = action.payload;
       const dragIndex = findItemIndexById(draft.tasks, draggedId);
       const hoverIndex = findItemIndexById(draft.tasks, hoverId);
-      //console.log("dragIndex=", dragIndex, "hoverIndex=", hoverIndex);
-
       draft.tasks = moveItem(draft.tasks, dragIndex, hoverIndex);
       break;
     }
     case "DELETE_TASK": {
       const { taskId } = action.payload;
-      //console.log("-----Number(taskId)= ", Number(taskId));
       const deleteIndex = findItemIndexById(draft.tasks, taskId);
       draft.tasks = removeItemAtIndex(draft.tasks, deleteIndex);
       break;
     }
     // ...
     default: {
+      // draft = draft;
+      //draft;
       break;
     }
   }

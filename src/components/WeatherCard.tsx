@@ -12,28 +12,23 @@ import { isHidden } from "../utils/isHidden";
 import useDebounce from "../utils/useDebounce";
 import { WeatherData } from "./WeatherCard.props";
 import { CardSize } from "../interfaces/interface";
-//import { CARD_SIZE } from "../state/data";
 
-//getRef: (val: any) => void;
 type CardProps = {
   text: string;
   id: string;
-
-  //   index: number;
   cardSize: CardSize;
   setCardSize: (cardSize: CardSize) => void;
+  delay: number;
 };
 
 function WeatherCard(cardProps: CardProps): JSX.Element {
   const [weatherState, setWeatherState] = useState("");
-  let { draggedItem, tasks, dispatch } = useAppState();
   const ref = useRef<HTMLDivElement>(null);
-  //const ref = useRef<HTMLButtonElement>(null);
+  let { draggedItem, tasks, dispatch } = useAppState();  
 
   const [, drop] = useDrop({
     accept: "CARD",
-    hover() {
-      //console.log( "++++++++++++++ hover on card = ", cardProps.id);
+    hover() {      
       if (!draggedItem) {
         return;
       }
@@ -41,12 +36,6 @@ function WeatherCard(cardProps: CardProps): JSX.Element {
         if (draggedItem.id === cardProps.id) {
           return;
         }
-        // console.log(
-        //   "++++++++++++++ drop draggedItem.id, cardProps.id = ",
-        //   draggedItem.id,
-        //   " ",
-        //   cardProps.id
-        // );
         dispatch(moveTask(draggedItem.id, cardProps.id));
       }
     },
@@ -65,8 +54,7 @@ function WeatherCard(cardProps: CardProps): JSX.Element {
     function handleResize() {
       setWidthWindow(window.innerWidth);
     }
-    if (tasks.length > 0 && tasks[0].idTask === cardProps.id) {
-      //console.log("resized to: ", window.innerWidth, "x", window.innerHeight);
+    if (tasks.length > 0 && tasks[0].idTask === cardProps.id) {     
       window.addEventListener("resize", handleResize);
     }
 
@@ -88,16 +76,14 @@ function WeatherCard(cardProps: CardProps): JSX.Element {
           height: heightFromWidth,
         } as CardSize);
       }
-      //cardProps.getRef(ref.current);
     }
-  }, [windowWidthDebounced]);
-  //   }, [widthWindow]);
+  }, [windowWidthDebounced]);  
+  
+  let weather: WeatherData = useGetWeather(cardProps.text, cardProps.delay);  
 
-  let weather: WeatherData = useGetWeather(cardProps.text);
-
-  useEffect(() => {
-    if (weather.weatherType) {
-      switch (weather.weatherType) {
+  useEffect(() => { 
+    if (weather?.weatherType) {
+      switch (weather?.weatherType) {
         case "Clouds":
           setWeatherState("wi-day-cloudy");
           break;
@@ -122,17 +108,15 @@ function WeatherCard(cardProps: CardProps): JSX.Element {
           break;
       }
     }
-  }, [weather.weatherType]);
+  }, [weather?.weatherType]);
 
-  let dr = drag(drop(ref));
-  //console.log("++++++++++++++ drag = ", dr);
+  let dr = drag(drop(ref));  
 
   const flagProps = {
-    code: weather.country ? weather.country.toLowerCase() : "ua",
+    code: weather?.country ? weather?.country.toLowerCase() : "ua",
     size: "lg",
   };
-
-  //year: "numeric",
+  
   return (
     <>
       <S.CardContainer
@@ -143,14 +127,14 @@ function WeatherCard(cardProps: CardProps): JSX.Element {
         <S.WeatherIcon>
           <i className={`wi ${weatherState}`}></i>
         </S.WeatherIcon>
-        <S.WeatherCondition>{weather.weatherType}</S.WeatherCondition>
+        <S.WeatherCondition>{weather?.weatherType}</S.WeatherCondition>
         <S.Place>
           <FlagIcon code={flagProps.code} size={flagProps.size} />
           &nbsp;&nbsp;&nbsp;
-          {weather.name}, {weather.country}
+          {weather?.name}, {weather?.country}
         </S.Place>
         <S.Temperature>
-          <span>{weather.temp}&deg;</span>
+          <span>{weather?.temp}&deg;</span>
         </S.Temperature>
         <S.CalendarDate1>
           {new Date().toLocaleString("en-US", {
@@ -167,21 +151,21 @@ function WeatherCard(cardProps: CardProps): JSX.Element {
           <i className={"wi wi-humidity"}></i>
         </S.HumidityIcon>
         <S.HumidityValue>
-          {weather.humidity} <br />
+          {weather?.humidity} <br />
           Humidity
         </S.HumidityValue>
         <S.PressureIcon>
           <i className={"wi wi-rain"}></i>
         </S.PressureIcon>
         <S.PressureValue>
-          {weather.pressure} <br />
+          {weather?.pressure} <br />
           Pressure
         </S.PressureValue>
         <S.WindIcon>
           <i className={"wi wi-strong-wind"}></i>
         </S.WindIcon>
         <S.WindValue>
-          {weather.speed} <br />
+          {weather?.speed} <br />
           Wind
         </S.WindValue>
         <S.DeleteIcon
@@ -191,11 +175,10 @@ function WeatherCard(cardProps: CardProps): JSX.Element {
         >
           <FaTimes />
         </S.DeleteIcon>
-        <S.LocalTime>{weather.timeHourMinutes}</S.LocalTime>
+        <S.LocalTime>{weather?.timeHourMinutes}</S.LocalTime>
       </S.CardContainer>
     </>
   );
 }
-//onAdd={(text) => dispatch(addTask(text, newItemFormId))}
 
 export default WeatherCard;

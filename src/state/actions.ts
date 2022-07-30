@@ -1,9 +1,15 @@
 import { DragItem } from "../DragItem";
+//import { Task } from "../state/appStateReducer";
 
 interface AddTaskAction {
   type: "ADD_TASK";
   payload: { text: string; taskId: string };
 }
+
+// interface AddTasksAction {
+//   type: "ADD_TASKS";
+//   payload: { tasks: Task[] };
+// }
 
 interface DeleteTaskAction {
   type: "DELETE_TASK";
@@ -23,9 +29,17 @@ interface SetDraggedItem {
 
 export type Action =
   | AddTaskAction
+  // | AddTasksAction
   | MoveListAction
   | SetDraggedItem
   | DeleteTaskAction;
+
+// export const addTasks = (tasks: Task[]): Action => ({
+//   type: "ADD_TASKS",
+//   payload: {
+//     tasks
+//   },
+// });
 
 export const addTask = (text: string, taskId: string): Action => ({
   type: "ADD_TASK",
@@ -54,32 +68,3 @@ export const setDraggedItem = (draggedItem: DragItem | null): Action => ({
   type: "SET_DRAGGED_TASK",
   payload: draggedItem,
 });
-
-// export type Action =
-//   //   | {
-//   //       type: "ADD_LIST";
-//   //       payload: string;
-//   //     }
-// | {
-// type: "MOVE_LIST"
-// payload: {
-// draggedId: string
-// hoverId: string
-// }
-// }
-//   {
-//     type: "ADD_TASK";
-//     payload: { text: string; taskId: string };
-//   };
-
-// interface AddListAction {
-//   type: "ADD_LIST";
-//   payload: string;
-// }
-
-// | {
-// type: "SET_DRAGGED_ITEM"
-// payload: DragItem | null
-// }
-
-//  | AddListAction
