@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { useFocus } from "../utils/useFocus";
+import { useFocus } from "../../utils/useFocus";
 import { NewItemFormProps } from "./NewItemForm.props";
 import * as S from "./newItemForm.styles";
+import { Header } from "../Header/Header";
+
 
 export const NewItemForm = (props: NewItemFormProps): JSX.Element => {
   const [text, setText] = useState("");
@@ -9,7 +11,7 @@ export const NewItemForm = (props: NewItemFormProps): JSX.Element => {
   const [showForm, setShowForm] = useState(false);
   const inputRef = useFocus();
 
-  const { onAdd } = props;
+  const { cardSize, onAdd } = props;
 
   const handleAddText = (
     event: React.KeyboardEvent<HTMLInputElement>
@@ -21,9 +23,10 @@ export const NewItemForm = (props: NewItemFormProps): JSX.Element => {
 
   return (
     <S.NewItemFormContainer
-      width={props.cardSize.width}
-      height={props.cardSize.height}
+      width={cardSize.width}
+      height={cardSize.height}
     >
+      <Header/>
       <S.NewItemInput
         ref={inputRef}
         value={text}

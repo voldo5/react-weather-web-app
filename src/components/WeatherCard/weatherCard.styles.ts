@@ -45,7 +45,7 @@ export const CardContainer = styled.div<CardContainerProps>`
   }};
   cursor: pointer;
   border-radius: 2px;
-  margin: 1px;
+  margin: 2px;
   display: grid;
   grid-template:
     "wicon wicon condition condition time time dicon" 1fr

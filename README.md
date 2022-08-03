@@ -4,7 +4,7 @@
 - show weather cards for cities
 - add and remove city cards
 - sort the cards by drag and drop
-![alt](./src/assets/WeatherApp.jpg)
+![alt](./src/assets/WeatherApp.png)
 ### Key Words
 ### frontend: React, Typescript, Styled-components
 #### React hooks: useState, useEffect, useReduce, useContext, useRef

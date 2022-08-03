@@ -6,7 +6,7 @@ import {
   Sys,
   Weather,
   Coord,
-} from "../interfaces/weatherAPI";
+} from "../../interfaces/weatherAPI";
 
 export interface WeatherData
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

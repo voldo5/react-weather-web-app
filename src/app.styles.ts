@@ -5,12 +5,19 @@ export const AppContainer = styled.div`
   background-color: #3179ba;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  padding: 8px;
+  flex-wrap: wrap;  
+  padding: 16px;
   width: 100%;
+
+  justify-content: center;
+  border: solid 2px red;
+  
+  align-content: center;
+
+  
 `;
 //height: 100vh;
+// align-content: flex-start;
 
 export const CardPlaceholder = styled.div`
   width: 220px;

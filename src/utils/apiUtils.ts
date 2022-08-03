@@ -1,7 +1,7 @@
 import { TimeZoneAPI } from "../interfaces/TimeZoneAPI";
 //import { WeatherAPI } from "../interfaces/WeatherAPI";
 import { WeatherAPI } from "../interfaces/weatherAPI";
-import { WeatherData } from "../components/WeatherCard.props";
+import { WeatherData } from "../components/WeatherCard/WeatherCard.props";
 
 export const getTimeZoneApiData = async (
   lon: number,

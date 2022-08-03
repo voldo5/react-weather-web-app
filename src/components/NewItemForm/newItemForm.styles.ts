@@ -25,7 +25,7 @@ export const NewItemFormContainer = styled.div<NewItemProps>`
   display: flex;
   flex-direction: column;
 
-  margin: 1px;
+  margin: 2px;
   justify-content: center;
 `;
 

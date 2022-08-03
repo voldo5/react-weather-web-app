@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext, useRef } from "react";
 import { getWeatherApiData, getTimeZoneApiData } from "./apiUtils";
-import { WeatherData } from "../components/WeatherCard.props";
+import { WeatherData } from "../components/WeatherCard/WeatherCard.props";
 //import { useAppState } from "../state/AppStateContext";
 
 export const useGetWeather = (city: string, timezoneDbRequestDelay: number): WeatherData => {

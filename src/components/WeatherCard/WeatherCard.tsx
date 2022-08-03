@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import * as S from "./weatherCard.styles";
-import { useGetWeather } from "../utils/useGetWeather";
-import FlagIcon from "./FlagIcon.js";
+import { useGetWeather } from "../../utils/useGetWeather";
+import FlagIcon from "../FlagIcon.js";
 import { FaTimes } from "react-icons/fa";
 import { useRef } from "react";
-import { useAppState } from "../state/AppStateContext";
+import { useAppState } from "../../state/AppStateContext";
 import { useDrop } from "react-dnd";
-import { moveTask, deleteTask } from "../state/actions";
-import { useItemDrag } from "../utils/useItemDrag";
-import { isHidden } from "../utils/isHidden";
-import useDebounce from "../utils/useDebounce";
+import { moveTask, deleteTask } from "../../state/actions";
+import { useItemDrag } from "../../utils/useItemDrag";
+import { isHidden } from "../../utils/isHidden";
+import useDebounce from "../../utils/useDebounce";
 import { WeatherData } from "./WeatherCard.props";
-import { CardSize } from "../interfaces/interface";
+import { CardSize } from "../../interfaces/interface";
 
 type CardProps = {
   text: string;

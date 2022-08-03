@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AppContainer } from "./app.styles";
-import WeatherCard from "./components/WeatherCard";
-import { NewItemForm } from "./components/NewItemForm";
+import WeatherCard from "./components/WeatherCard/WeatherCard";
+import { NewItemForm } from "./components/NewItemForm/NewItemForm";
 import { useAppState } from "./state/AppStateContext";
 import { addTask } from "./state/actions";
 import { CardSize } from "./interfaces/interface";
