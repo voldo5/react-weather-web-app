@@ -26,7 +26,12 @@ export const NewItemFormContainer = styled.div<NewItemProps>`
   flex-direction: column;
 
   margin: 2px;
-  justify-content: center;
+  // justify-content: center;
+  justify-content: flex-start;
+
+  border: solid 2px white;
+  border-radius: 3px;
+
 `;
 
 export const NewItemInput = styled.input`
