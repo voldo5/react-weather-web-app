@@ -1,21 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 //import { HeaderProps } from "./Header.props";
-import styles from "./styles.module.css";
-// import "./styles.css";
+import * as S from "./header.styles";
+//import styles from "./styles.module.css";
+import "./styles.css";
 import { ReactComponent as FirebaseIcon } from "../Svg/FirebaseIcon.svg";
 import { ReactComponent as HerokuIcon } from "../Svg/HerokuIcon.svg";
 import { ReactComponent as NoDbIcon } from "../Svg/noDbIcon.svg";
 import ReactTooltip from "react-tooltip";
-import {
-  getAuth,
-  onAuthStateChanged,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signOut,
-} from 'firebase/auth';
-import { GoogleLogin , useGoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline } from 'react-google-login';
 
-console.log('-----------Header');
 //export const Header = (props: HeaderProps): JSX.Element => {
 export const Header = (): JSX.Element => {
   const [text, setText] = useState(""); 
@@ -36,68 +28,7 @@ export const Header = (): JSX.Element => {
 
   const [tooltipF, setTooltipF] = useState(true);
   const [tooltipH, setTooltipH] = useState(true);
-  const [tooltipN, setTooltipN] = useState(true); 
-  
-  const onSuccess = (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
-    //console.log('Login Success: currentUser:', res.profileObj);
-    console.log('Login Success: currentUser:', res);
-    // alert(
-    //   `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
-    // );
-
-    //refreshTokenSetup(res);
-  };
-
-  const onFailure = (res: GoogleLoginResponse | GoogleLoginResponseOffline) => {
-    console.log('Login failed: res:', res);
-    // alert(
-    //   `Failed to login. 😢 Please ping this to repo owner twitter.com/sivanesh_fiz`
-    // );
-  };
-
-  // const responseGoogle = (response) => {
-  //   console.log(response);
-  // }
-  
-  // const clientId =
-  // '1016012247781-v3unmbci425l38kgnrqqacpkmm6ufn9q.apps.googleusercontent.com';
-  //const clientId = '1016012247781-k2vejd6jlj4kle9qqgrvbrpptg62ja3p.apps.googleusercontent.com';
-
-  
-  const clientId = '265085235727-2tlsmthn0m1a5v39i131ib0gtsn2j29a.apps.googleusercontent.com';
-  
-  const { signIn } = useGoogleLogin({
-    onSuccess,
-    onFailure,
-    clientId,
-    isSignedIn: true,
-    accessType: 'offline',
-    // responseType: 'code',
-    // prompt: 'consent',
-  });
-  //alert('signIn');
-
-  //  useEffect(() => { 
-  //     signIn();
-  // }, [backend]);
-
-  // useEffect(() => {
-  //   function initFirebaseAuth() {
-  //     // Listen to auth state changes.
-  //     onAuthStateChanged(getAuth(), authStateObserver);
-  //   }
-
-  //   initFirebaseAuth();
-  // }, []);
-  
-  // useEffect(() => {
-  //   async function signIn() {
-  //     // Sign in Firebase using popup auth and Google as the identity provider.
-  //     var provider = new GoogleAuthProvider();
-  //     await signInWithPopup(getAuth(), provider); }
-
-  //     signIn();
-  // }, [backend]);
+  const [tooltipN, setTooltipN] = useState(true);    
 
   //   const { cardSize, onAdd } = props;
 
@@ -108,13 +39,13 @@ export const Header = (): JSX.Element => {
   //       onAdd(text);
   //     }
   //   };
-//<div className={styles.rowTimePickerTimePicker}></div>
+
   return (
-    <div className={styles.headerContainer}> 
-        <div className={styles.iconContainer}>
+    <div className="header-container">
+        <div className="iconContainer">
           {tooltipF && (
             <ReactTooltip
-              className={styles.tooltipTheme}
+              className='tooltipTheme'
               id="farebaseTip"
               place="top"
               effect="float"
@@ -122,7 +53,7 @@ export const Header = (): JSX.Element => {
             />
           )}
           <label
-            className={styles.labelBackend}
+            className="labelBackend"
             htmlFor="firebaseId"
             data-tip="Store app state in Firebase"
             data-for="farebaseTip"
@@ -137,21 +68,19 @@ export const Header = (): JSX.Element => {
             <input
               type="radio"
               name="backendRadioGroup"
-              className={styles.firebase}
+              className="firebase"
               id="firebaseId"
               value="firebase"
-              //onFocus={(e) => {signIn(); alert('signIn')}}
-              onMouseDown={(e) => {signIn()}}
-              //onFocus={(e) => {setBackend(e.target.value)}}
+              onFocus={(e) => {setBackend(e.target.value)}}
               //onChange={() => {}}
               readOnly
             />
-            <FirebaseIcon className={styles.iconBackend}/>
+            <FirebaseIcon className="iconBackend" />
           </label>
 
           {tooltipH && (
             <ReactTooltip
-              className={styles.tooltipTheme}
+              className='tooltipTheme'
               id="herokuTip"
               place="top"
               effect="float"
@@ -159,7 +88,7 @@ export const Header = (): JSX.Element => {
             />
           )}
           <label
-            className={styles.labelBackend}
+            className="labelBackend"
             htmlFor="herokuId"
             data-tip="Store app state in Heroku"
             data-for="herokuTip"
@@ -174,13 +103,13 @@ export const Header = (): JSX.Element => {
             <input
               type="radio"
               name="backendRadioGroup"
-              className={styles.heroku}
+              className="heroku"
               id="herokuId"
               value="heroku"
               onFocus={(e) => {setBackend(e.target.value)}}
               readOnly
             />           
-            <HerokuIcon className={styles.iconBackend} />
+            <HerokuIcon className="iconBackend" />
           </label>
 
           {/* After upgrading to react 18, tooltip not disappearing.
@@ -188,7 +117,7 @@ export const Header = (): JSX.Element => {
               Exactly, it runs normally if we remove Strict Mode in root app, of React 18. */}
           {tooltipN && (
             <ReactTooltip
-              className={styles.tooltipTheme}
+              className='tooltipTheme'
               id="nobackendTip"
               place="top"
               effect="float"
@@ -196,7 +125,7 @@ export const Header = (): JSX.Element => {
             />
           )}
           <label
-            className={styles.labelBackend}
+            className="labelBackend"
             htmlFor="nobackendId"            
             data-tip="Do not store App state"
             data-for="nobackendTip"
@@ -211,14 +140,14 @@ export const Header = (): JSX.Element => {
             <input
               type="radio"
               name="backendRadioGroup"
-              className={styles.nobackend}
+              className="nobackend"
               id="nobackendId"
               value="nobackend"
               // checked
               onFocus={(e) => {setBackend(e.target.value)}}
               readOnly
             />                
-            <NoDbIcon className={styles.iconBackend}/> 
+            <NoDbIcon className="iconBackend"/> 
           </label>
         </div>
       {/* </div> */}
