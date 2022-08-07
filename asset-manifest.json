@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-weather-web-app/static/css/main.38f53605.css",
-    "main.js": "/react-weather-web-app/static/js/main.9da313d5.js",
+    "main.css": "/react-weather-web-app/static/css/main.510a5a8f.css",
+    "main.js": "/react-weather-web-app/static/js/main.fafaf114.js",
     "static/media/do.svg": "/react-weather-web-app/static/media/do.64a9810e7d07e3af7412.svg",
     "static/media/rs.svg": "/react-weather-web-app/static/media/rs.3b67d7bed888271edff6.svg",
     "static/media/bo.svg": "/react-weather-web-app/static/media/bo.1155c3da4861424ea8ff.svg",
@@ -91,12 +91,12 @@
     "static/media/ck.svg": "/react-weather-web-app/static/media/ck.d76f3968d6f25ed0bc7d.svg",
     "static/media/pg.svg": "/react-weather-web-app/static/media/pg.dcb8c4ab032af81620bd.svg",
     "static/media/si.svg": "/react-weather-web-app/static/media/si.7f576d8798a8732afa46.svg",
-    "static/media/FirebaseIcon.svg": "/react-weather-web-app/static/media/FirebaseIcon.a59f421182c8af26ab7f1e98e5b7f97b.svg",
-    "static/media/HerokuIcon.svg": "/react-weather-web-app/static/media/HerokuIcon.5cd60f57729c51ba6b369e9d9085e0d0.svg",
+    "static/media/FirebaseIcon.svg": "/react-weather-web-app/static/media/FirebaseIcon.da77e0813b85bafd5aa0ddc2374f4f77.svg",
+    "static/media/HerokuIcon.svg": "/react-weather-web-app/static/media/HerokuIcon.9c47500ef7a82f41cbfe4d32486cde1c.svg",
     "static/media/gd.svg": "/react-weather-web-app/static/media/gd.b446a44dff915db18869.svg",
     "static/media/kr.svg": "/react-weather-web-app/static/media/kr.9406f22f1237e7e4059d.svg",
     "static/media/tj.svg": "/react-weather-web-app/static/media/tj.e97716cafb6e3b770d5b.svg",
-    "static/media/nodatabase.svg": "/react-weather-web-app/static/media/nodatabase.1eae71de9b3290dd54ae510f55147c31.svg",
+    "static/media/noDbIcon.svg": "/react-weather-web-app/static/media/noDbIcon.aa6733fd5d1ec3a14827582396661025.svg",
     "static/media/tv.svg": "/react-weather-web-app/static/media/tv.c87adc622981a557f7a5.svg",
     "static/media/nu.svg": "/react-weather-web-app/static/media/nu.9deebec59d90dece17fc.svg",
     "static/media/uy.svg": "/react-weather-web-app/static/media/uy.091841c8018480091fae.svg",
@@ -131,13 +131,13 @@
     "static/media/sb.svg": "/react-weather-web-app/static/media/sb.00988e025b134db97443.svg",
     "static/media/sg.svg": "/react-weather-web-app/static/media/sg.e6a27ad3fc2dedabca8b.svg",
     "static/media/st.svg": "/react-weather-web-app/static/media/st.72697a87cfc011963be4.svg",
+    "index.html": "/react-weather-web-app/index.html",
     "static/media/il.svg": "/react-weather-web-app/static/media/il.3bc4ce048568d30c327f.svg",
     "static/media/gw.svg": "/react-weather-web-app/static/media/gw.f29eedfe431a60cae11e.svg",
     "static/media/eh.svg": "/react-weather-web-app/static/media/eh.905fdd0842d1597c4a27.svg",
     "static/media/za.svg": "/react-weather-web-app/static/media/za.83099da26ad6804ed7a5.svg",
     "static/media/mm.svg": "/react-weather-web-app/static/media/mm.6f93c6d0ec04077b61c7.svg",
     "static/media/kp.svg": "/react-weather-web-app/static/media/kp.8d10def41b377b1163c5.svg",
-    "index.html": "/react-weather-web-app/index.html",
     "static/media/cm.svg": "/react-weather-web-app/static/media/cm.7578267e8568b1490427.svg",
     "static/media/kn.svg": "/react-weather-web-app/static/media/kn.091a5508172f8eee28f2.svg",
     "static/media/cn.svg": "/react-weather-web-app/static/media/cn.f5a6f048eb8367343bd4.svg",
@@ -264,11 +264,11 @@
     "static/media/pl.svg": "/react-weather-web-app/static/media/pl.9400273de5d060652ce7.svg",
     "static/media/de.svg": "/react-weather-web-app/static/media/de.7e82f4c71df5fc78abbb.svg",
     "static/media/bd.svg": "/react-weather-web-app/static/media/bd.d16830cba55e113c5888.svg",
-    "main.38f53605.css.map": "/react-weather-web-app/static/css/main.38f53605.css.map",
-    "main.9da313d5.js.map": "/react-weather-web-app/static/js/main.9da313d5.js.map"
+    "main.510a5a8f.css.map": "/react-weather-web-app/static/css/main.510a5a8f.css.map",
+    "main.fafaf114.js.map": "/react-weather-web-app/static/js/main.fafaf114.js.map"
   },
   "entrypoints": [
-    "static/css/main.38f53605.css",
-    "static/js/main.9da313d5.js"
+    "static/css/main.510a5a8f.css",
+    "static/js/main.fafaf114.js"
   ]
 }
