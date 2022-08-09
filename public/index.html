@@ -14,7 +14,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     <!-- //todo -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
 
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -35,6 +35,16 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- data-callback="handleCredentialResponse" -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <div id="g_id_onload"
+         data-client_id="265085235727-2tlsmthn0m1a5v39i131ib0gtsn2j29a.apps.googleusercontent.com"
+         
+         >
+    </div>
+    <div class="g_id_signin" data-type="standard"></div>
+
     <div id="root"></div>
     <!--
       This HTML file is a template.

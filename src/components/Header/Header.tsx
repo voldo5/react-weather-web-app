@@ -58,19 +58,17 @@ export const Header = (): JSX.Element => {
   // const responseGoogle = (response) => {
   //   console.log(response);
   // }
+ 
+  //1016012247781-k2vejd6jlj4kle9qqgrvbrpptg62ja3p.apps.googleusercontent.com
+  //1016012247781-v3unmbci425l38kgnrqqacpkmm6ufn9q.apps.googleusercontent.com
   
-  // const clientId =
-  // '1016012247781-v3unmbci425l38kgnrqqacpkmm6ufn9q.apps.googleusercontent.com';
-  //const clientId = '1016012247781-k2vejd6jlj4kle9qqgrvbrpptg62ja3p.apps.googleusercontent.com';
-
-  
-  const clientId = '265085235727-2tlsmthn0m1a5v39i131ib0gtsn2j29a.apps.googleusercontent.com';
+  const clientId = '265085235727-2tlsmthn0m1a5v39i131ib0gtsn2j29a.apps.googleusercontent.com';   
   
   const { signIn } = useGoogleLogin({
     onSuccess,
     onFailure,
     clientId,
-    isSignedIn: true,
+    isSignedIn: false,
     accessType: 'offline',
     // responseType: 'code',
     // prompt: 'consent',
@@ -112,13 +110,14 @@ export const Header = (): JSX.Element => {
   return (
     <div className={styles.headerContainer}> 
         <div className={styles.iconContainer}>
+        {/* {tooltipF && ( */}
           {tooltipF && (
             <ReactTooltip
               className={styles.tooltipTheme}
               id="farebaseTip"
               place="top"
               effect="float"
-              delayShow={600}
+              delayShow={1600}
             />
           )}
           <label
