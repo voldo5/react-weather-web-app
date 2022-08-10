@@ -4,8 +4,9 @@ import { App } from "./App";
 import { DndProvider } from "react-dnd";
 import { AppStateProvider } from "./state/AppStateContext";
 import { HTML5Backend as Backend } from "react-dnd-html5-backend";
+import { AuthProvider } from "./firebase/Authprovider";
 
-import { createRoot } from 'react-dom/client';
+import { createRoot } from "react-dom/client";
 
 // interface Props {
 //   children?: React.ReactNode;
@@ -27,10 +28,12 @@ const container = document.getElementById("root");
 const root = createRoot(container!);
 root.render(
   <React.StrictMode>
-    <DndProvider backend={Backend}>
-      <AppStateProvider>
-        <App />
-      </AppStateProvider>
-    </DndProvider>
+    <AuthProvider>
+      <DndProvider backend={Backend}>
+        <AppStateProvider>
+          <App />
+        </AppStateProvider>
+      </DndProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

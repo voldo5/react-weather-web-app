@@ -15,7 +15,8 @@
     
     <!-- //todo -->
     <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
-
+    <!-- <script src="https://accounts.google.com/gsi/client" async defer></script> -->
+   
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -37,13 +38,30 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
     <!-- data-callback="handleCredentialResponse" -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <div id="g_id_onload"
-         data-client_id="265085235727-2tlsmthn0m1a5v39i131ib0gtsn2j29a.apps.googleusercontent.com"
-         
-         >
+
+    <!-- <script src="https://accounts.google.com/gsi/client" async defer></script> -->
+    <!-- <div id="g_id_onload"
+         data-client_id="265085235727-2tlsmthn0m1a5v39i131ib0gtsn2j29a.apps.googleusercontent.com">
     </div>
-    <div class="g_id_signin" data-type="standard"></div>
+    <div class="g_id_signin" data-type="standard"></div> -->
+
+    <!-- <script src="https://accounts.google.com/gsi/client" async defer></script> -->
+    <!-- <div id="g_id_onload"      
+     data-client_id="265085235727-2tlsmthn0m1a5v39i131ib0gtsn2j29a.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-login_uri="https://voldo5.github.io/react-weather-web-app/"
+     data-auto_prompt="false">
+</div>
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="rectangular"
+     data-theme="filled_blue"
+     data-text="signin_with"
+     data-size="large"
+     data-locale="en-US"
+     data-logo_alignment="left">
+</div> -->
 
     <div id="root"></div>
     <!--
