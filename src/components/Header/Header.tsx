@@ -131,7 +131,7 @@ export const Header = (): JSX.Element => {
   //<div className={styles.rowTimePickerTimePicker}></div>
   return (
     <div className={styles.headerContainer}>
-      {/* <div>Hello</div> */}
+      {/* Sign In With Google button */}
       <div
         id="g_id_onload"
         data-client_id="265085235727-2tlsmthn0m1a5v39i131ib0gtsn2j29a.apps.googleusercontent.com"
@@ -139,9 +139,7 @@ export const Header = (): JSX.Element => {
         data-ux_mode="popup"
         data-login_uri="https://voldo5.github.io/react-weather-web-app/"
         data-auto_prompt="false"
-      ></div>
-
-      <div
+      ></div>      <div
         className="g_id_signin"
         data-type="standard"
         data-shape="rectangular"
