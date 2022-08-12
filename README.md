@@ -40,3 +40,8 @@ useImmer(initialState) is very similar to useState. When passing a function to t
 ### React DnD
 React DnD is a set of React utilities to help you build complex drag and drop interfaces while keeping your components decoupled.
 
+package.json 
+"homepage": "https://voldo5.github.io/react-weather-web-app",
+change on 
+"homepage": "https://pogoda4you.guru/",
+
