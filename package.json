@@ -1,7 +1,7 @@
 {
   "name": "proj1",
   "version": "0.1.0",
-  "homepage": "https://voldo5.github.io/react-weather-web-app/",  
+  "homepage": "pogoda4you.guru",  
   "private": true,
   "dependencies": {
     "-": "^0.0.1",
