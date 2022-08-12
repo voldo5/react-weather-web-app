@@ -44,4 +44,5 @@ package.json
 "homepage": "https://voldo5.github.io/react-weather-web-app",
 change on 
 "homepage": "https://pogoda4you.guru/",
+"homepage": "https://pogoda4you.guru/react-weather-web-app/",  
 
